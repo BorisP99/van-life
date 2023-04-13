@@ -1,7 +1,15 @@
 import React from "react";
+import { useOutletContext } from "react-router-dom";
 
 const HostVanPhotos = () => {
-  return <h1>Photo goes here</h1>;
+  const { currentVan } = useOutletContext();
+  return (
+    <img
+      src={currentVan.imageUrl}
+      className="host-van-detail-image"
+      alt="detailImage"
+    />
+  );
 };
 
 export default HostVanPhotos;
