@@ -19,7 +19,7 @@ const HostVanDetail = () => {
       .then((data) => {
         setCurrentVan(data.vans);
       });
-  }, []);
+  }, [params.id]);
 
   if (!currentVan) {
     return <h1>Loading...</h1>;
