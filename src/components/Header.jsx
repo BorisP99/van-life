@@ -26,6 +26,13 @@ const Header = () => {
         >
           Vans
         </NavLink>
+        <Link to="login" className="login-link">
+          <img
+            src="../images/Icon.png"
+            alt="avatarIcon"
+            className="login-icon"
+          />
+        </Link>
       </nav>
     </header>
   );
