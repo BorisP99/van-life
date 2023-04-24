@@ -1,46 +1,32 @@
 import React from "react";
-import { useState } from "react";
-//import { useNavigate } from "react-router-dom";
+import { Form } from "react-router-dom";
+
+export async function action({ request }) {
+  const formData = await request.formData();
+  const email = formData.get("email");
+  const password = formData.get("password");
+  console.log(email, password);
+  return null;
+}
 
 const LoginPage = () => {
-  const [loginFormData, setLoginFormData] = useState({
-    email: "",
-    password: "",
-  });
-
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(loginFormData);
-  }
-
-  function handleChange(e) {
-    const { name, value } = e.target;
-    setLoginFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
   }
 
   return (
     <div className="login-container">
       <h1>Sign in to your account</h1>
-      <form onSubmit={handleSubmit} className="login-form">
-        <input
-          name="email"
-          type="email"
-          placeholder="Email address"
-          value={loginFormData.email}
-          onChange={handleChange}
-        />
+      <Form method="post" className="login-form">
+        <input name="email" type="email" placeholder="Email address" />
         <input
           name="password"
           type="password"
           placeholder="Password"
-          value={loginFormData.password}
-          onChange={handleChange}
+          minLength="6"
         />
         <button>Sign in</button>
-      </form>
+      </Form>
     </div>
   );
 };
