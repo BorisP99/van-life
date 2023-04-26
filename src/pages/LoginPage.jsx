@@ -10,9 +10,9 @@ export async function action({ request }) {
 }
 
 const LoginPage = () => {
-  function handleSubmit(e) {
-    e.preventDefault();
-  }
+  // function handleSubmit(e) {
+  //   e.preventDefault();
+  // }
 
   return (
     <div className="login-container">
